@@ -13,24 +13,30 @@ Este proyecto contiene un servicio en Go que se despliega en Google Cloud Platfo
 
 
 ## Habilita Cloud Run
+  
+  ```bash
+    gcloud services enable run.googleapis.com
 
-gcloud services enable run.googleapis.com
+```
+
 
 ## Configura el proyecto con tu Project ID
-
+  ```bash
 gcloud config set project [PROJECT_ID]
 
-
+```
 ## Construye y sube la imagen de Docker a GCR
-
+  ```bash
 gcloud builds submit --tag gcr.io/[PROJECT_ID]/my-go-service
 
-
+```
 ### Despliega el Servicio en Cloud Run
 
+  ```bash
 gcloud run deploy my-go-service \
   --image gcr.io/[PROJECT_ID]/my-go-service \
   --platform managed \
   --region us-central1 \
   --allow-unauthenticated
 
+```
